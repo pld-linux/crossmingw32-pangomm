@@ -1,24 +1,24 @@
 Summary:	A C++ interface for pango library - cross Mingw32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna Mingw32
 Name:		crossmingw32-pangomm
-Version:	2.14.1
+Version:	2.24.0
 Release:	1
 License:	LGPL v2+
 Group:		Development/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.14/pangomm-%{version}.tar.bz2
-# Source0-md5:	c67228ea93dd977394d2872b61754b53
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.24/pangomm-%{version}.tar.bz2
+# Source0-md5:	fa0f44c37499433455857becad4bbcda
 URL:		http://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	crossmingw32-cairomm >= 1.6.3
 BuildRequires:	crossmingw32-gcc-c++
 BuildRequires:	crossmingw32-glibmm >= 2.16.0
-BuildRequires:	crossmingw32-pango >= 1.22.0
+BuildRequires:	crossmingw32-pango >= 1.24.0
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig >= 1:0.15
 Requires:	crossmingw32-cairomm >= 1.6.3
 Requires:	crossmingw32-glibmm >= 2.16.0
-Requires:	crossmingw32-pango >= 1.22.0
+Requires:	crossmingw32-pango >= 1.24.0
 Provides:	crossmingw32-gtkmm-pango
 Obsoletes:	crossmingw32-gtkmm-pango
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -69,7 +69,7 @@ Summary(pl.UTF-8):	Biblioteka DLL pangomm dla Windows
 Group:		Applications/Emulators
 Requires:	crossmingw32-cairomm-dll >= 1.6.3
 Requires:	crossmingw32-glibmm-dll >= 2.16.0
-Requires:	crossmingw32-pango-dll >= 1.22.0
+Requires:	crossmingw32-pango-dll >= 1.24.0
 Requires:	wine
 Provides:	crossmingw32-gtkmm-pango-dll
 Obsoletes:	crossmingw32-gtkmm-pango-dll
