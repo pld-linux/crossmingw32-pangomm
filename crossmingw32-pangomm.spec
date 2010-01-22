@@ -1,12 +1,12 @@
 Summary:	A C++ interface for pango library - cross Mingw32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna Mingw32
 Name:		crossmingw32-pangomm
-Version:	2.24.0
+Version:	2.26.0
 Release:	1
 License:	LGPL v2+
 Group:		Development/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.24/pangomm-%{version}.tar.bz2
-# Source0-md5:	fa0f44c37499433455857becad4bbcda
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.26/pangomm-%{version}.tar.bz2
+# Source0-md5:	37f54dc8e6cb73ed923b22f313352156
 URL:		http://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
@@ -15,6 +15,7 @@ BuildRequires:	crossmingw32-gcc-c++
 BuildRequires:	crossmingw32-glibmm >= 2.16.0
 BuildRequires:	crossmingw32-pango >= 1.24.0
 BuildRequires:	libtool >= 2:1.5
+BuildRequires:	mm-common
 BuildRequires:	pkgconfig >= 1:0.15
 Requires:	crossmingw32-cairomm >= 1.6.3
 Requires:	crossmingw32-glibmm >= 2.16.0
@@ -86,14 +87,14 @@ Biblioteka DLL pangomm dla Windows.
 %build
 export PKG_CONFIG_LIBDIR=%{_prefix}/lib/pkgconfig
 %{__libtoolize}
-%{__aclocal} -I scripts
+%{__aclocal} -I build
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 %configure \
 	--target=%{target} \
 	--host=%{target} \
-	--disable-docs \
+	--disable-documentation \
 	--enable-static
 
 %{__make}
