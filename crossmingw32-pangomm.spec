@@ -1,18 +1,18 @@
-Summary:	A C++ interface for pango library - cross Mingw32 version
-Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna Mingw32
+Summary:	A C++ interface for pango library - cross MinGW32 version
+Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32
 Name:		crossmingw32-pangomm
-Version:	2.26.0
+Version:	2.26.2
 Release:	1
 License:	LGPL v2+
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.26/pangomm-%{version}.tar.bz2
-# Source0-md5:	37f54dc8e6cb73ed923b22f313352156
+# Source0-md5:	b363b09faf884db8bf8d1458d719ff00
 URL:		http://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	crossmingw32-cairomm >= 1.6.3
 BuildRequires:	crossmingw32-gcc-c++
-BuildRequires:	crossmingw32-glibmm >= 2.16.0
+BuildRequires:	crossmingw32-glibmm >= 2.22.0
 BuildRequires:	crossmingw32-pango >= 1.24.0
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	mm-common
@@ -45,24 +45,24 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		filterout_ld	-Wl,-z,.*
 
 %description
-A C++ interface for pango library - cross Mingw32 version.
+A C++ interface for pango library - cross MinGW32 version.
 
 %description -l pl.UTF-8
-Interfejs C++ dla biblioteki pango - wersja skrośna Mingw32.
+Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32.
 
 %package static
-Summary:	Static pangomm library (cross mingw32 version)
-Summary(pl.UTF-8):	Statyczna biblioteka pangomm (wersja skrośna mingw32)
+Summary:	Static pangomm library (cross MinGW32 version)
+Summary(pl.UTF-8):	Statyczna biblioteka pangomm (wersja skrośna MinGW32)
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Provides:	crossmingw32-gtkmm-pango-static
 Obsoletes:	crossmingw32-gtkmm-pango-static
 
 %description static
-Static pangomm library (cross mingw32 version).
+Static pangomm library (cross MinGW32 version).
 
 %description static -l pl.UTF-8
-Statyczna biblioteka pangomm (wersja skrośna mingw32).
+Statyczna biblioteka pangomm (wersja skrośna MinGW32).
 
 %package dll
 Summary:	DLL pangomm library for Windows
