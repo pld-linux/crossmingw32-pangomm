@@ -96,6 +96,7 @@ export PKG_CONFIG_LIBDIR=%{_prefix}/lib/pkgconfig:%{_npkgconfigdir}
 	--target=%{target} \
 	--host=%{target} \
 	--disable-documentation \
+	--disable-silent-rules \
 	--enable-static
 
 %{__make}
