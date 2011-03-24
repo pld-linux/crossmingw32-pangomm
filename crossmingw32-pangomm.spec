@@ -1,22 +1,23 @@
 Summary:	A C++ interface for pango library - cross MinGW32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32
 Name:		crossmingw32-pangomm
-Version:	2.26.3
+Version:	2.28.0
 Release:	1
 License:	LGPL v2+
 Group:		Development/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.26/pangomm-%{version}.tar.bz2
-# Source0-md5:	1f2712d53918cfb4745c291a67b86156
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.28/pangomm-%{version}.tar.bz2
+# Source0-md5:	524c3c7da1c0b728970592880af36def
 URL:		http://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	crossmingw32-cairomm >= 1.6.3
 BuildRequires:	crossmingw32-gcc-c++
 BuildRequires:	crossmingw32-glibmm >= 2.22.0
 BuildRequires:	crossmingw32-pango >= 1.24.0
 BuildRequires:	libtool >= 2:1.5
-BuildRequires:	mm-common
+BuildRequires:	mm-common >= 0.9.4
 BuildRequires:	pkgconfig >= 1:0.15
+BuildRequires:	rpmbuild(macros) >= 1.446
 Requires:	crossmingw32-cairomm >= 1.6.3
 Requires:	crossmingw32-glibmm >= 2.16.0
 Requires:	crossmingw32-pango >= 1.24.0
@@ -85,7 +86,7 @@ Biblioteka DLL pangomm dla Windows.
 %setup -q -n pangomm-%{version}
 
 %build
-export PKG_CONFIG_LIBDIR=%{_prefix}/lib/pkgconfig
+export PKG_CONFIG_LIBDIR=%{_prefix}/lib/pkgconfig:%{_npkgconfigdir}
 %{__libtoolize}
 %{__aclocal} -I build
 %{__autoconf}
