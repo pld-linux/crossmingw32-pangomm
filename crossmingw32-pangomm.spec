@@ -19,7 +19,7 @@ BuildRequires:	mm-common >= 0.9.5
 BuildRequires:	pkgconfig >= 1:0.15
 BuildRequires:	rpmbuild(macros) >= 1.446
 Requires:	crossmingw32-cairomm >= 1.6.3
-Requires:	crossmingw32-glibmm >= 2.16.0
+Requires:	crossmingw32-glibmm >= 2.22.0
 Requires:	crossmingw32-pango >= 1.24.0
 Provides:	crossmingw32-gtkmm-pango
 Obsoletes:	crossmingw32-gtkmm-pango
@@ -70,7 +70,7 @@ Summary:	DLL pangomm library for Windows
 Summary(pl.UTF-8):	Biblioteka DLL pangomm dla Windows
 Group:		Applications/Emulators
 Requires:	crossmingw32-cairomm-dll >= 1.6.3
-Requires:	crossmingw32-glibmm-dll >= 2.16.0
+Requires:	crossmingw32-glibmm-dll >= 2.22.0
 Requires:	crossmingw32-pango-dll >= 1.24.0
 Requires:	wine
 Provides:	crossmingw32-gtkmm-pango-dll
