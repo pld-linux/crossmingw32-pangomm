@@ -2,7 +2,7 @@ Summary:	A C++ interface for pango library - cross MinGW32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32
 Name:		crossmingw32-pangomm
 Version:	2.28.4
-Release:	4
+Release:	5
 License:	LGPL v2+
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.28/pangomm-%{version}.tar.xz
@@ -42,6 +42,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		__pkgconfig_provides	%{nil}
 %define		__pkgconfig_requires	%{nil}
 
+%define		_ssp_cflags		%{nil}
 %ifnarch %{ix86}
 # arch-specific flags (like alpha's -mieee) are not valid for i386 gcc
 %define		optflags	-O2
