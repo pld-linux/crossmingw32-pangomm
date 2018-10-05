@@ -2,7 +2,7 @@ Summary:	A C++ interface for pango library - cross MinGW32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32
 Name:		crossmingw32-pangomm
 Version:	2.40.1
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.40/pangomm-%{version}.tar.xz
@@ -50,7 +50,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %endif
 # -z options are invalid for mingw linker, most of -f options are Linux-specific
 %define		filterout_ld	-Wl,-z,.*
-%define		filterout_c		-f[-a-z0-9=]*
+%define		filterout_c	-f[-a-z0-9=]*
 
 %description
 A C++ interface for pango library - cross MinGW32 version.
@@ -99,6 +99,8 @@ export PKG_CONFIG_LIBDIR=%{_prefix}/lib/pkgconfig:%{_npkgconfigdir}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+# std-threads required by glibmm requires at least WinXP API
+CPPFLAGS="%{rpmcppflags} -DWINVER=0x0501"
 %configure \
 	--target=%{target} \
 	--host=%{target} \
