@@ -142,4 +142,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files dll
 %defattr(644,root,root,755)
-%{_dlldir}/libpangomm-1.4-*.dll
+%{_dlldir}/libpangomm-1.4-1.dll
