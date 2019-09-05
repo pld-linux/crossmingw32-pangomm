@@ -2,12 +2,12 @@ Summary:	A C++ interface for pango library - cross MinGW32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32
 Name:		crossmingw32-pangomm
 Version:	2.42.0
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.42/pangomm-%{version}.tar.xz
 # Source0-md5:	6cffedf2225c4e72645a7d757fb5b832
-URL:		http://www.gtkmm.org/
+URL:		https://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	crossmingw32-cairomm >= 1.12.0
@@ -119,6 +119,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_dlldir}
 %{__mv} $RPM_BUILD_ROOT%{_prefix}/bin/*.dll $RPM_BUILD_ROOT%{_dlldir}
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libpangomm-*.la
+
 %if 0%{!?debug:1}
 %{target}-strip --strip-unneeded -R.comment -R.note $RPM_BUILD_ROOT%{_dlldir}/*.dll
 %{target}-strip -g -R.comment -R.note $RPM_BUILD_ROOT%{_libdir}/*.a
@@ -131,7 +133,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %{_libdir}/libpangomm-1.4.dll.a
-%{_libdir}/libpangomm-1.4.la
 %{_libdir}/pangomm-1.4
 %{_includedir}/pangomm-1.4
 %{_pkgconfigdir}/pangomm-1.4.pc
