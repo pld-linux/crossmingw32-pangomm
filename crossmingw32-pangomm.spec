@@ -1,12 +1,12 @@
 Summary:	A C++ interface for pango library - cross MinGW32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32
 Name:		crossmingw32-pangomm
-Version:	2.42.1
+Version:	2.42.2
 Release:	1
 License:	LGPL v2+
 Group:		Development/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/2.42/pangomm-%{version}.tar.xz
-# Source0-md5:	339c48dd92ebd3a9911b231708f7a819
+Source0:	https://download.gnome.org/sources/pangomm/2.42/pangomm-%{version}.tar.xz
+# Source0-md5:	85707ce52628b6a3c3caf245095ba6d5
 URL:		https://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
@@ -14,6 +14,8 @@ BuildRequires:	crossmingw32-cairomm >= 1.12.0
 BuildRequires:	crossmingw32-gcc-c++ >= 1:4.7
 BuildRequires:	crossmingw32-glibmm >= 2.48.0
 BuildRequires:	crossmingw32-pango >= 1.41.0
+# for gmmproc tools
+BuildRequires:	glibmm-devel >= 2.46.2
 BuildRequires:	libtool >= 2:2.0
 BuildRequires:	mm-common >= 0.9.10
 BuildRequires:	pkgconfig >= 1:0.15
@@ -93,7 +95,10 @@ Biblioteka DLL pangomm dla Windows.
 %setup -q -n pangomm-%{version}
 
 %build
+# use host gmmprocdir (before changing PKG_CONFIG_LIBDIR to cross target)
+GMMPROC_DIR=$(pkg-config --variable=gmmprocdir glibmm-2.4)
 export PKG_CONFIG_LIBDIR=%{_prefix}/lib/pkgconfig:%{_npkgconfigdir}
+mm-common-prepare --copy --force
 %{__libtoolize}
 %{__aclocal} -I build
 %{__autoconf}
@@ -105,10 +110,12 @@ CPPFLAGS="%{rpmcppflags} -DWINVER=0x0501"
 	--target=%{target} \
 	--host=%{target} \
 	--disable-documentation \
+	--enable-maintainer-mode \
 	--disable-silent-rules \
 	--enable-static
 
-%{__make}
+%{__make} \
+	GMMPROC_DIR="$GMMPROC_DIR"
 
 %install
 rm -rf $RPM_BUILD_ROOT
