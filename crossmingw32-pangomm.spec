@@ -1,12 +1,12 @@
 Summary:	A C++ interface for pango library - cross MinGW32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32
 Name:		crossmingw32-pangomm
-Version:	2.46.0
+Version:	2.46.1
 Release:	1
 License:	LGPL v2+
 Group:		Development/Libraries
 Source0:	https://download.gnome.org/sources/pangomm/2.46/pangomm-%{version}.tar.xz
-# Source0-md5:	9b32edce1e04300c1648a313dc29e9f7
+# Source0-md5:	62665f7ace9e282a0c563b40a15627f5
 URL:		https://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
@@ -27,10 +27,11 @@ Requires:	crossmingw32-gcc-c++ >= 1:4.7
 Requires:	crossmingw32-glibmm >= 2.48.0
 Requires:	crossmingw32-pango >= 1.45.1
 Provides:	crossmingw32-gtkmm-pango
-Obsoletes:	crossmingw32-gtkmm-pango
+Obsoletes:	crossmingw32-gtkmm-pango < 2.14
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		no_install_post_strip	1
+%define		_enable_debug_packages	0
 
 %define		target			i386-mingw32
 %define		target_platform 	i386-pc-mingw32
@@ -66,7 +67,7 @@ Summary(pl.UTF-8):	Statyczna biblioteka pangomm (wersja skrośna MinGW32)
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Provides:	crossmingw32-gtkmm-pango-static
-Obsoletes:	crossmingw32-gtkmm-pango-static
+Obsoletes:	crossmingw32-gtkmm-pango-static < 2.14
 
 %description static
 Static pangomm library (cross MinGW32 version).
@@ -83,7 +84,7 @@ Requires:	crossmingw32-glibmm-dll >= 2.48.0
 Requires:	crossmingw32-pango-dll >= 1.45.1
 Requires:	wine
 Provides:	crossmingw32-gtkmm-pango-dll
-Obsoletes:	crossmingw32-gtkmm-pango-dll
+Obsoletes:	crossmingw32-gtkmm-pango-dll < 2.14
 
 %description dll
 DLL pangomm library for Windows.
