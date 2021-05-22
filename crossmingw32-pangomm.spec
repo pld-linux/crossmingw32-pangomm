@@ -97,8 +97,9 @@ Biblioteka DLL pangomm dla Windows.
 
 %build
 # use host gmmprocdir (before changing PKG_CONFIG_LIBDIR to cross target)
-GMMPROC_DIR=$(pkg-config --variable=gmmprocdir glibmm-2.4)
-export PKG_CONFIG_LIBDIR=%{_prefix}/lib/pkgconfig:%{_npkgconfigdir}
+# note: rpm.org sets PKG_CONFIG_PATH according to _libdir and _datadir
+GMMPROC_DIR=$(PKG_CONFIG_PATH=%{_sysprefix}/%{_lib}/pkgconfig pkg-config --variable=gmmprocdir glibmm-2.4)
+export PKG_CONFIG_PATH=%{_prefix}/lib/pkgconfig:%{_npkgconfigdir}
 mm-common-prepare --copy --force
 %{__libtoolize}
 %{__aclocal} -I build
