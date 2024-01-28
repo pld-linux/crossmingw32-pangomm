@@ -1,12 +1,12 @@
 Summary:	A C++ interface for pango library - cross MinGW32 version
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki pango - wersja skrośna MinGW32
 Name:		crossmingw32-pangomm
-Version:	2.46.3
+Version:	2.46.4
 Release:	1
 License:	LGPL v2+
 Group:		Development/Libraries
 Source0:	https://download.gnome.org/sources/pangomm/2.46/pangomm-%{version}.tar.xz
-# Source0-md5:	7af783bb04de766fafaaad26c9ed475a
+# Source0-md5:	5947d35899db62813531d7ea8faee60c
 URL:		https://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
@@ -140,7 +140,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README.md
+%doc ChangeLog NEWS README.md
 %{_libdir}/libpangomm-1.4.dll.a
 %{_libdir}/pangomm-1.4
 %{_includedir}/pangomm-1.4
